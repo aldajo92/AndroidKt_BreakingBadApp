@@ -17,9 +17,9 @@ data class RecyclerBBItem(
 
     override fun bind(binding: ViewDataBinding, listener: ItemListener<BBCharacter>) {
         this.binding = binding as ItemDashboardBinding
-
         this.binding?.apply {
             setVariable(variableId, data)
+
             viewCover.setOnClickListener {
                 listener.onClickItem(this@RecyclerBBItem)
             }

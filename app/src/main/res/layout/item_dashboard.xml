@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="model"
+            type="com.projects.aldajo92.breakingbadapp.domain.BBCharacter" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_container"
         android:layout_width="match_parent"
@@ -12,6 +20,13 @@
         tools:background="@color/text_color">
 
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".4" />
+
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,60 +34,66 @@
             app:layout_constraintGuide_percent=".5" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            android:id="@+id/card_view"
+            android:layout_width="0dp"
             android:layout_height="0dp"
+            android:backgroundTint="?android:colorActivatedHighlight"
             android:clickable="true"
             android:focusable="true"
             android:translationZ="0dp"
             app:cardCornerRadius="@dimen/spacing_small"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline2" />
+            app:layout_constraintBottom_toBottomOf="@+id/textView_votes"
+            app:layout_constraintEnd_toEndOf="@id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/item_name" />
 
         <ImageView
             android:id="@+id/imageView_picture"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            tools:layout_width="80dp"
             android:layout_height="@dimen/height_image_home"
             android:translationZ="@dimen/spacing_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline1" />
 
         <TextView
             android:id="@+id/item_name"
-            style="@style/TextViewSmallWhite"
+            style="@style/TextViewMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="@dimen/spacing_small"
+            android:text="@{ model.name }"
             android:translationZ="@dimen/spacing_small"
-            app:layout_constraintEnd_toEndOf="@+id/imageView_picture"
-            app:layout_constraintStart_toStartOf="@+id/imageView_picture"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_picture"
-            tools:text="0000" />
+            app:layout_constraintBottom_toTopOf="@id/textView_votes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Character Name" />
 
         <TextView
             android:id="@+id/textView_votes"
-            style="@style/TextViewMedium"
+            style="@style/TextViewSmallWhite"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/spacing_small"
             android:paddingEnd="@dimen/spacing_small"
             android:paddingBottom="@dimen/spacing_small"
+            android:text="@{ model.description }"
             android:translationZ="@dimen/spacing_small"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageView_picture"
-            app:layout_constraintStart_toStartOf="@+id/imageView_picture"
-            app:layout_constraintTop_toBottomOf="@+id/item_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_name"
             tools:text="0000" />
 
         <View
             android:id="@+id/view_cover"
-            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:translationZ="@dimen/spacing_large"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:translationZ="@dimen/spacing_medium"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

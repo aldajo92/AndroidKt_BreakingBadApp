@@ -1,4 +1,4 @@
-package com.projects.aldajo92.breakingbadapp.presentation
+package com.projects.aldajo92.breakingbadapp.presentation.ui
 
 import android.content.Context
 import android.widget.Toast
@@ -14,5 +14,9 @@ abstract class BaseFragment : Fragment() {
 
     fun showToastMessage(message: String?) {
         Toast.makeText(requireActivity(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun showLoader(showLoader: Boolean){
+        (requireActivity() as MainActivity).showProgressBar(showLoader)
     }
 }

@@ -1,4 +1,4 @@
-package com.projects.aldajo92.breakingbadapp.repository.country
+package com.projects.aldajo92.breakingbadapp.repository.characters
 
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.BreakingBadApi
@@ -13,7 +13,7 @@ class BBCharacterRepositoryImpl constructor(
         val responseList = breakingBadApi.getCharacterByPagination(100, 0) ?: emptyList()
         return responseList.map {
             // TODO: Apply mapper here
-            BBCharacter()
+            BBCharacter(it.charId, it.nickName, false, it.imageUrl, it.name)
         }
     }
 
