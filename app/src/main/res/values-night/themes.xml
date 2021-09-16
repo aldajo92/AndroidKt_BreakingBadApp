@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BreakingBadApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TextViewContentWhite">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextViewSmallWhite">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextViewMedium" parent="TextViewSmallWhite">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="TextViewTitleWhite" parent="TextViewSmallWhite">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextViewHuge" parent="TextViewSmallWhite">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+</resources>

@@ -1,0 +1,111 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.projects.aldajo92.breakingbadapp"
+        minSdk 23
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+}
+
+ext {
+    firebase_boom = '26.8.0'
+    // Dependencies Version
+    androidx_appcompat = '1.2.0'
+    androidx_coreKtx = '1.3.2'
+    androidx_constraintLayout = '2.0.4'
+    androidx_lifecycleExtensions = '2.2.0'
+    androidx_liveData = '2.3.1'
+    androidx_fragmentktx = '1.3.2'
+    androidx_preference = '1.1.1'
+    android_navigation = '2.3.4'
+    android_material = '1.2.1'
+    recyclerView = '1.1.0'
+
+    material = '1.3.0'
+    timber = '4.7.1'
+
+    moshi = '1.9.3'
+    retrofit = '2.9.0'
+    glide = '4.12.0'
+
+    dagger_version = '2.32'
+    room_version = '2.2.5'
+
+    // Testing Dependencies Version
+    junit = '4.13.2'
+    mockito_kotlin = '3.0.0'
+    androidJunit = '1.1.2'
+    expressonCore = '3.3.0'
+    legacy_support_v4 = '1.0.0'
+    coroutines_test = '1.4.3'
+    core_testing = '2.1.0'
+}
+
+dependencies {
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.legacy:legacy-support-v4:$legacy_support_v4"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$timber"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
