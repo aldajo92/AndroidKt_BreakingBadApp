@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.projects.aldajo92.breakingbadapp.databinding.FragmentDetailBinding
 import com.projects.aldajo92.breakingbadapp.presentation.ui.BaseFragment
 import javax.inject.Inject
@@ -19,6 +20,8 @@ class DetailFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDetailBinding
 
+    private val args: DetailFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,10 +34,11 @@ class DetailFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val character = args.character
 
-//        binding.buttonSecond.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
+        binding.viewModel = viewModel
+        viewModel.initInfo(character)
+
     }
 
     override fun onDestroyView() {

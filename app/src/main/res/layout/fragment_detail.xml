@@ -1,13 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.projects.aldajo92.breakingbadapp.presentation.ui.detail.DetailViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- TODO: REPLACE HEADER TITTLE-->
         <TextView
-            android:id="@+id/textView_movie_title"
+            android:id="@+id/textView_header_title"
             style="@style/TextViewTitleWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -15,8 +25,151 @@
             android:layout_marginTop="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_large"
             android:ellipsize="end"
+            android:text="@{ viewModel.characterField.name }"
             android:gravity="center"
-            android:lines="1" />
+            android:lines="1"
+            tools:text="Title" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@color/cardview_dark_background"
+            android:layout_marginEnd="@dimen/margin_large" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large">
+
+                <TextView
+                    android:id="@+id/textView_title_original"
+                    style="@style/TextViewTitleWhite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@{ viewModel.characterField.description }"
+                    tools:text="Title" />
+
+                <ImageView
+                    android:id="@+id/imageView_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/detail_image_height"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:imageFromUrl="@{ viewModel.characterField.imageUrl }"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_title_original"
+                    tools:background="@color/background" />
+
+                <ImageView
+                    android:id="@+id/image_view_ic_star"
+                    android:layout_width="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/spacing_xsmall"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView_subtitle_occupation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView_subtitle_occupation" />
+
+                <!-- Region Occupation-->
+
+                <TextView
+                    android:id="@+id/textView_subtitle_occupation"
+                    style="@style/TextViewTitleWhite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:text="@string/detail.occupation"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_picture" />
+
+                <TextView
+                    android:id="@+id/text_view_occupation"
+                    style="@style/TextViewTitleWhite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintEnd_toStartOf="@+id/image_view_ic_star"
+                    app:layout_constraintStart_toEndOf="@+id/textView_subtitle_occupation"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_picture"
+                    tools:text="Occupation" />
+
+                <!-- Region Status-->
+
+                <TextView
+                    android:id="@+id/text_view_subtitle_status"
+                    style="@style/TextViewTitleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:text="@string/detail.status"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_subtitle_occupation"
+                    tools:text="Status" />
+
+                <TextView
+                    android:id="@+id/text_view_status"
+                    style="@style/TextViewTitleWhite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView_subtitle_occupation"
+                    app:layout_constraintTop_toTopOf="@id/text_view_subtitle_status"
+                    android:text="@{ viewModel.characterField.status }"
+                    tools:text="Status" />
+
+                <!-- Region Portrayed-->
+
+                <TextView
+                    android:id="@+id/text_view_subtitle_portrayed"
+                    style="@style/TextViewTitleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:text="@string/detail.portrayed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_subtitle_status"
+                    tools:text="Portrayed" />
+
+                <TextView
+                    android:id="@+id/text_view_portrayed"
+                    style="@style/TextViewTitleWhite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{ viewModel.characterField.portrayed }"
+                    app:layout_constraintStart_toEndOf="@+id/textView_subtitle_occupation"
+                    app:layout_constraintTop_toTopOf="@id/text_view_subtitle_portrayed"
+                    tools:text="Portrayed" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
