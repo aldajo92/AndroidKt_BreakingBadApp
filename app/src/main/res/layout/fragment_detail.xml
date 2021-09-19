@@ -25,9 +25,9 @@
             android:layout_marginTop="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_large"
             android:ellipsize="end"
-            android:text="@{ viewModel.characterField.name }"
             android:gravity="center"
             android:lines="1"
+            android:text="@{ viewModel.characterField.name }"
             tools:text="Title" />
 
         <View
@@ -36,8 +36,8 @@
             android:layout_height="1dp"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_normal"
-            android:background="@color/cardview_dark_background"
-            android:layout_marginEnd="@dimen/margin_large" />
+            android:layout_marginEnd="@dimen/margin_large"
+            android:background="@color/cardview_dark_background" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scroll_view"
@@ -56,10 +56,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_large"
                     android:layout_marginEnd="@dimen/margin_large"
+                    android:text="@{ viewModel.characterField.description }"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="@{ viewModel.characterField.description }"
                     tools:text="Title" />
 
                 <ImageView
@@ -70,8 +70,8 @@
                     android:layout_marginTop="@dimen/margin_large"
                     android:layout_marginEnd="@dimen/margin_large"
                     android:layout_marginBottom="@dimen/margin_normal"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:imageFromUrl="@{ viewModel.characterField.imageUrl }"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView_title_original"
                     tools:background="@color/background" />
@@ -102,7 +102,7 @@
 
                 <TextView
                     android:id="@+id/text_view_occupation"
-                    style="@style/TextViewTitleWhite"
+                    style="@style/TextViewWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_small"
@@ -110,6 +110,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/image_view_ic_star"
                     app:layout_constraintStart_toEndOf="@+id/textView_subtitle_occupation"
                     app:layout_constraintTop_toBottomOf="@+id/imageView_picture"
+                    app:listToText="@{ viewModel.characterField.occupation }"
                     tools:text="Occupation" />
 
                 <!-- Region Status-->
@@ -120,23 +121,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_large"
-                    android:layout_marginTop="@dimen/margin_normal"
                     android:layout_marginEnd="@dimen/margin_large"
                     android:text="@string/detail.status"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_subtitle_occupation"
+                    app:layout_constraintTop_toTopOf="@+id/text_view_status"
                     tools:text="Status" />
 
                 <TextView
                     android:id="@+id/text_view_status"
-                    style="@style/TextViewTitleWhite"
+                    style="@style/TextViewWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:text="@{ viewModel.characterField.status }"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView_subtitle_occupation"
-                    app:layout_constraintTop_toTopOf="@id/text_view_subtitle_status"
-                    android:text="@{ viewModel.characterField.status }"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_occupation"
                     tools:text="Status" />
 
                 <!-- Region Portrayed-->
@@ -156,12 +157,12 @@
 
                 <TextView
                     android:id="@+id/text_view_portrayed"
-                    style="@style/TextViewTitleWhite"
+                    style="@style/TextViewWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_small"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:text="@{ viewModel.characterField.portrayed }"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView_subtitle_occupation"
                     app:layout_constraintTop_toTopOf="@id/text_view_subtitle_portrayed"
                     tools:text="Portrayed" />
