@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class DetailViewModel @Inject constructor(
     private val characterRepository: CharactersRepository<BBCharacter>
-): ViewModel() {
+) : ViewModel() {
 
     val characterField = ObservableField<BBCharacter>()
     val isFavoriteField = ObservableField(false)
@@ -24,13 +24,18 @@ class DetailViewModel @Inject constructor(
     fun toggleFavorites() {
         val state = !(isFavoriteField.get() ?: false)
 
-        isFavoriteField.set(state)
-
-        characterField.get()?.let {
-            viewModelScope.launch {
-//                favoritesRepository.saveToFavorites(it)
+        if (state) {
+            characterField.get()?.isFavorite = true
+            characterField.get()?.let {
+                viewModelScope.launch {
+                    characterRepository.saveFavoriteItem(it)
+                }
             }
+        } else {
+
         }
+
+        isFavoriteField.set(state)
     }
 
 }
