@@ -130,7 +130,7 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$android_navigation"
 
     //============================= Tests Section =============================//
-    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mock_webserver"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mock_webserver"
     testImplementation "junit:junit:$junit"
     testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin"
     androidTestImplementation "androidx.test.ext:junit:$androidJunit"

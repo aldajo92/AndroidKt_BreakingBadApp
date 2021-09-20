@@ -1,6 +1,6 @@
 package com.projects.aldajo92.breakingbadapp.framework
 
-import com.projects.aldajo92.breakingbadapp.framework.network.search.CharactersResponse
+import com.projects.aldajo92.breakingbadapp.framework.network.models.CharactersResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import javax.inject.Singleton
