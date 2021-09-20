@@ -46,4 +46,8 @@ class CharacterRepositoryImpl constructor(
         return ""
     }
 
+    override suspend fun removeFavoriteItem(key: String?) {
+        key?.let { favoritesDao.deleteById(it) }
+    }
+
 }

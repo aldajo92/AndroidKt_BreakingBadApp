@@ -6,6 +6,8 @@ interface CharactersRepository<T> {
 
     suspend fun saveFavoriteItem(item: T)
 
+    suspend fun removeFavoriteItem(key: String?)
+
     suspend fun getFavoriteItems(): List<T>?
 
 }
