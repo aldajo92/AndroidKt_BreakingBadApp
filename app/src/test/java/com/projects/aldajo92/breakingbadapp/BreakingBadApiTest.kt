@@ -18,7 +18,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.InputStreamReader
 
 /**
- * Test for Breaking Bad API.
+ * Test for BreakingBadApi.
  */
 class BreakingBadApiTest {
 

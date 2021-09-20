@@ -7,5 +7,5 @@ import com.projects.aldajo92.breakingbadapp.framework.db.entities.FavoriteCharac
 
 @Database(entities = [FavoriteCharactersEntity::class], version = 2)
 abstract class BBFavoritesDatabase : RoomDatabase() {
-    abstract fun favoriteProductDao(): FavoriteCharactersDao
+    abstract fun getFavoriteCharactersDao(): FavoriteCharactersDao
 }

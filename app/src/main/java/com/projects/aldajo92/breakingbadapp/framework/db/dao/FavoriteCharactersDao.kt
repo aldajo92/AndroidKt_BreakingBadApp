@@ -10,7 +10,7 @@ import com.projects.aldajo92.breakingbadapp.framework.db.entities.FavoriteCharac
 interface FavoriteCharactersDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addFavoriteProduct(product: FavoriteCharactersEntity)
+    suspend fun addFavoriteCharacter(product: FavoriteCharactersEntity)
 
     @Query("DELETE FROM bb_favorites WHERE characterID = :key")
     suspend fun deleteById(key: String)

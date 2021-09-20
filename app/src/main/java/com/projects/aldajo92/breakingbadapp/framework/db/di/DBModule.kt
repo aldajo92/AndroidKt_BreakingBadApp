@@ -22,7 +22,7 @@ class DBModule {
     @Provides
     @Singleton
     internal fun provideFavoriteDao(database: BBFavoritesDatabase): FavoriteCharactersDao {
-        return database.favoriteProductDao()
+        return database.getFavoriteCharactersDao()
     }
 
 }
