@@ -1,4 +1,4 @@
-package com.projects.aldajo92.breakingbadapp.repository.characters
+package com.projects.aldajo92.breakingbadapp.repository
 
 interface CharactersRepository<T> {
 

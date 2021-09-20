@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
-import com.projects.aldajo92.breakingbadapp.repository.characters.CharactersRepository
+import com.projects.aldajo92.breakingbadapp.repository.CharactersRepository
 import com.projects.aldajo92.breakingbadapp.presentation.events.DashBoardEvents
 import kotlinx.coroutines.launch
 import timber.log.Timber

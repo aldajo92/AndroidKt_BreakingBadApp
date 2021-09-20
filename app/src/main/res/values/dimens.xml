@@ -3,6 +3,7 @@
     <!--Margins and paddings values-->
     <dimen name="spacing_xsmall">5dp</dimen>
     <dimen name="spacing_small">10dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
     <dimen name="spacing_medium">20dp</dimen>
     <dimen name="spacing_large">30dp</dimen>
 

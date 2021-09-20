@@ -1,11 +1,11 @@
-package com.projects.aldajo92.breakingbadapp.di.repository
+package com.projects.aldajo92.breakingbadapp.repository.di
 
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.BreakingBadApi
-import com.projects.aldajo92.breakingbadapp.repository.characters.CharacterRepositoryImpl
-import com.projects.aldajo92.breakingbadapp.repository.characters.CharactersRepository
-import com.projects.aldajo92.breakingbadapp.repository.favorites.FavoritesRepository
-import com.projects.aldajo92.breakingbadapp.repository.favorites.FavoritesRepositoryImpl
+import com.projects.aldajo92.breakingbadapp.repository.CharacterRepositoryImpl
+import com.projects.aldajo92.breakingbadapp.repository.CharactersRepository
+import com.projects.aldajo92.breakingbadapp.repository.FavoritesRepository
+import com.projects.aldajo92.breakingbadapp.repository.FavoritesRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

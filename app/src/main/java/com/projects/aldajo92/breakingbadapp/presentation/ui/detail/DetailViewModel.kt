@@ -4,7 +4,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
-import com.projects.aldajo92.breakingbadapp.repository.favorites.FavoritesRepository
+import com.projects.aldajo92.breakingbadapp.repository.FavoritesRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -22,6 +22,10 @@ class DetailViewModel @Inject constructor(
     }
 
     fun toggleFavorites() {
+        val state = !(isFavoriteField.get() ?: false)
+
+        isFavoriteField.set(state)
+
         characterField.get()?.let {
             viewModelScope.launch {
 //                favoritesRepository.saveToFavorites(it)

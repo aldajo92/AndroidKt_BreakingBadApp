@@ -2,7 +2,7 @@ package com.projects.aldajo92.breakingbadapp.di
 
 import android.app.Application
 import com.projects.aldajo92.breakingbadapp.BaseApplication
-import com.projects.aldajo92.breakingbadapp.di.repository.RepositoryModule
+import com.projects.aldajo92.breakingbadapp.repository.di.RepositoryModule
 import com.projects.aldajo92.breakingbadapp.di.ui.ActivityBuilderModule
 import com.projects.aldajo92.breakingbadapp.di.ui.FragmentBuilderModule
 import com.projects.aldajo92.breakingbadapp.di.viewmodel.ViewModelModule

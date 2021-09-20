@@ -1,4 +1,4 @@
-package com.projects.aldajo92.breakingbadapp.repository.characters
+package com.projects.aldajo92.breakingbadapp.repository
 
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.BreakingBadApi
