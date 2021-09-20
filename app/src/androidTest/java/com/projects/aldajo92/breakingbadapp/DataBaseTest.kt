@@ -17,6 +17,7 @@ import java.io.IOException
 
 /**
  * Instrumented test to  test database operations.
+ * TODO: ADD Robolectric
  */
 @RunWith(AndroidJUnit4::class)
 class DatabaseTest {
@@ -24,14 +25,6 @@ class DatabaseTest {
     private lateinit var favoriteCharactersDao: FavoriteCharactersDao
 
     private lateinit var db: BBFavoritesDatabase
-
-    private val charactersList = listOf(
-        BBCharacter("1", nickName = "ch1", name = "character1", isFavorite = false),
-        BBCharacter("2", nickName = "ch2", name = "character2", isFavorite = true),
-        BBCharacter("3", nickName = "ch3", name = "character3", isFavorite = false),
-        BBCharacter("4", nickName = "ch4", name = "character4", isFavorite = false),
-        BBCharacter("5", nickName = "ch5", name = "character5", isFavorite = false)
-    )
 
     @Before
     fun createDb() {
