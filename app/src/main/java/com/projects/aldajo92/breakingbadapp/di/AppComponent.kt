@@ -6,6 +6,7 @@ import com.projects.aldajo92.breakingbadapp.repository.di.RepositoryModule
 import com.projects.aldajo92.breakingbadapp.di.ui.ActivityBuilderModule
 import com.projects.aldajo92.breakingbadapp.di.ui.FragmentBuilderModule
 import com.projects.aldajo92.breakingbadapp.di.viewmodel.ViewModelModule
+import com.projects.aldajo92.breakingbadapp.framework.db.di.DBModule
 import com.projects.aldajo92.breakingbadapp.framework.network.di.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
@@ -22,7 +23,8 @@ import javax.inject.Singleton
         FragmentBuilderModule::class,
         ViewModelModule::class,
         NetworkModule::class,
-        RepositoryModule::class
+        RepositoryModule::class,
+        DBModule::class
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {

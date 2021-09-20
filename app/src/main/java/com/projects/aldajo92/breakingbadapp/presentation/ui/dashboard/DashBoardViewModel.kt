@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Singleton
 class DashBoardViewModel @Inject constructor(
-    private val characterRepository: CharactersRepository<BBCharacter>,
+    private val characterRepository: CharactersRepository<BBCharacter>
 ) : ViewModel() {
 
     private val _responseLiveData = MutableLiveData<DashBoardEvents<*>>()

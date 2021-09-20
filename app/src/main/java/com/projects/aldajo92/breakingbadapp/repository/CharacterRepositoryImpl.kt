@@ -2,9 +2,11 @@ package com.projects.aldajo92.breakingbadapp.repository
 
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.BreakingBadApi
+import com.projects.aldajo92.breakingbadapp.framework.db.dao.FavoriteCharactersDao
 
 class CharacterRepositoryImpl constructor(
-    private val breakingBadApi: BreakingBadApi
+    private val breakingBadApi: BreakingBadApi,
+    private val favoritesDao: FavoriteCharactersDao
 ) : CharactersRepository<BBCharacter> {
 
     private var characters: List<BBCharacter>? = null
@@ -24,6 +26,14 @@ class CharacterRepositoryImpl constructor(
                 it.portrayed
             )
         }
+    }
+
+    override fun setFavoriteItem(item: BBCharacter) {
+
+    }
+
+    override fun getFavoriteItems(): List<BBCharacter> {
+        return emptyList()
     }
 
 }

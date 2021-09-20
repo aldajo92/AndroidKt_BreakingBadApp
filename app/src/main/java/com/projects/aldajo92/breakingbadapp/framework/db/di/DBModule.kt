@@ -13,8 +13,8 @@ class DBModule {
 
     @Provides
     @Singleton
-    internal fun provideMeliFavoritesDatabase(context: Context): BBFavoritesDatabase {
-        return Room.databaseBuilder(context, BBFavoritesDatabase::class.java, "favorite_products")
+    internal fun provideFavoritesDatabase(context: Context): BBFavoritesDatabase {
+        return Room.databaseBuilder(context, BBFavoritesDatabase::class.java, "favorite_characters")
             .fallbackToDestructiveMigration()
             .build()
     }

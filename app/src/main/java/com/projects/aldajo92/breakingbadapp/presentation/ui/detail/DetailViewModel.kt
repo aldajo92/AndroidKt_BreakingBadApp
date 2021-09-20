@@ -4,14 +4,14 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
-import com.projects.aldajo92.breakingbadapp.repository.FavoritesRepository
+import com.projects.aldajo92.breakingbadapp.repository.CharactersRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class DetailViewModel @Inject constructor(
-    private val favoritesRepository: FavoritesRepository<BBCharacter>
+    private val characterRepository: CharactersRepository<BBCharacter>
 ): ViewModel() {
 
     val characterField = ObservableField<BBCharacter>()

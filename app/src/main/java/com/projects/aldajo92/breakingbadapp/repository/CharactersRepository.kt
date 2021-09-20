@@ -4,4 +4,8 @@ interface CharactersRepository<T> {
 
     suspend fun getItems(): List<T>?
 
+    fun setFavoriteItem(item: T)
+
+    fun getFavoriteItems(): List<T>?
+
 }
