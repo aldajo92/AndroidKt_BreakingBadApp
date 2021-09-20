@@ -1,4 +1,4 @@
-package com.projects.aldajo92.breakingbadapp.framework.network.search
+package com.projects.aldajo92.breakingbadapp.framework.network.models
 
 import com.squareup.moshi.Json
 

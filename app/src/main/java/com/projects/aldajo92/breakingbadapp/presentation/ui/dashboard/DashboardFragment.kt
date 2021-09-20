@@ -74,7 +74,13 @@ class DashboardFragment : BaseFragment(), ItemListener<BBCharacter> {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        showLoader(true)
+    }
+
     override fun onClickItem(item: GenericItem<BBCharacter>) {
-        findNavController().navigate(R.id.action_dashboardFragment_to_detailFragment)
+        val action = DashboardFragmentDirections.actionDashboardFragmentToDetailFragment(item.data)
+        findNavController().navigate(action)
     }
 }
