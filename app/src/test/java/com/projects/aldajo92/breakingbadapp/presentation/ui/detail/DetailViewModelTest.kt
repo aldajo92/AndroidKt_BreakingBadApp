@@ -17,10 +17,4 @@ class DetailViewModelTest {
     fun setUp() {
         viewModel = DetailViewModel(characterRepository)
     }
-
-    @Test
-    fun saveImage() {
-
-        viewModel.saveImage()
-    }
 }

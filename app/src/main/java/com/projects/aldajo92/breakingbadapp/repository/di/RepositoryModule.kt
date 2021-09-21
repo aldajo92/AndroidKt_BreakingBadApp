@@ -1,8 +1,8 @@
 package com.projects.aldajo92.breakingbadapp.repository.di
 
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
-import com.projects.aldajo92.breakingbadapp.framework.BreakingBadApi
-import com.projects.aldajo92.breakingbadapp.framework.db.dao.FavoriteCharactersDao
+import com.projects.aldajo92.breakingbadapp.framework.network.BreakingBadApi
+import com.projects.aldajo92.breakingbadapp.framework.db.FavoriteCharactersDao
 import com.projects.aldajo92.breakingbadapp.repository.CharacterRepositoryImpl
 import com.projects.aldajo92.breakingbadapp.repository.CharactersRepository
 import dagger.Module

@@ -1,26 +1,30 @@
 package com.projects.aldajo92.breakingbadapp
 
 import android.content.Context
+import android.os.Build
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.db.BBFavoritesDatabase
-import com.projects.aldajo92.breakingbadapp.framework.db.dao.FavoriteCharactersDao
+import com.projects.aldajo92.breakingbadapp.framework.db.FavoriteCharactersDao
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import java.io.IOException
 
 /**
  * Instrumented test to  test database operations.
- * TODO: ADD Robolectric
  */
-@RunWith(AndroidJUnit4::class)
-class DatabaseTest {
+@Config(sdk = [Build.VERSION_CODES.O_MR1])
+@RunWith(RobolectricTestRunner::class)
+class DataBaseTest {
+
+    private lateinit var context: Context
 
     private lateinit var favoriteCharactersDao: FavoriteCharactersDao
 
@@ -28,7 +32,7 @@ class DatabaseTest {
 
     @Before
     fun createDb() {
-        val context = ApplicationProvider.getApplicationContext<Context>()
+        context = ApplicationProvider.getApplicationContext()
         db = Room.inMemoryDatabaseBuilder(context, BBFavoritesDatabase::class.java).build()
         favoriteCharactersDao = db.getFavoriteCharactersDao()
     }
@@ -47,7 +51,8 @@ class DatabaseTest {
                 "2",
                 nickName = "ch2",
                 name = "character2",
-                isFavorite = true
+                isFavorite = true,
+                occupation = listOf("occupation1", "occupation2")
             ).toEntityModel("")
 
         favoriteCharactersDao.addFavoriteCharacter(favoriteCharacterEntity)

@@ -47,6 +47,11 @@ android {
         exclude 'META-INF/*.kotlin_module'
         exclude 'META-INF/gradle/incremental.annotation.processors'
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 ext {
@@ -75,6 +80,8 @@ ext {
 
     // Testing Dependencies Version
     mock_webserver = '4.6.0'
+    robolectric = '4.4'
+    androidx_core = '1.4.0'
     junit = '4.13.2'
     mockito_kotlin = '3.0.0'
     androidJunit = '1.1.2'
@@ -131,12 +138,14 @@ dependencies {
 
     //============================= Tests Section =============================//
     testImplementation "com.squareup.okhttp3:mockwebserver:$mock_webserver"
+    testImplementation "org.robolectric:robolectric:$robolectric"
     testImplementation "junit:junit:$junit"
     testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin"
-    androidTestImplementation "androidx.test.ext:junit:$androidJunit"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$expressonCore"
+    testImplementation "androidx.test:core:$androidx_core"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test"
     testImplementation "androidx.room:room-testing:$room_version"
     testImplementation "androidx.arch.core:core-testing:$core_testing"
 
+    androidTestImplementation "androidx.test.ext:junit:$androidJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$expressonCore"
 }

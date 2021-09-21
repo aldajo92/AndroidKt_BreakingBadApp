@@ -1,7 +1,7 @@
 package com.projects.aldajo92.breakingbadapp.framework.network.di
 
 import com.projects.aldajo92.breakingbadapp.BASE_URL
-import com.projects.aldajo92.breakingbadapp.framework.BreakingBadApi
+import com.projects.aldajo92.breakingbadapp.framework.network.BreakingBadApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

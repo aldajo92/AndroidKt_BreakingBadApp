@@ -10,7 +10,8 @@ data class BBCharacter(
     val status: String = "",
     val name: String = "",
     val occupation: List<String>? = emptyList(),
-    val portrayed: String = ""
+    val portrayed: String = "",
+    val bornDate: String = ""
 ) : Serializable {
     companion object {
         val EMPTY = BBCharacter("0", "", false)
