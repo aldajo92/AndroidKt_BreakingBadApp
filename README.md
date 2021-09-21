@@ -2,6 +2,7 @@
 
 # Preview:
 
+![App preview](./.media/preview.gif)
 
 ## Introduction ##
 This project is an Android app wich consumes the Breaking Bad Api, to display, list, and provide information about the characters related. This project is made in Kotlin, and inspired in the concept of clean architecture as it shown in the following diagram.
@@ -23,9 +24,12 @@ This application uses the most common libraries for Android projects:
 - Retrofit: It allows to define the proper operations to consume the the methods provided by the Breaking Bad Api.
 - Moshi: It is used to map the json retrieved by the server to data classes.
 - Glide: It allows to render the images represented as urls.
-- Timber: This library provide improvement for log messages, providing the context related when they are shown in Logcat.
+- Timber: This library provide improvement for log messages with the context related when they are shown in Logcat.
 
 For testing, the following are the libraries used:
 - Mock Web Server
 - Mockito
 - Robolectric
+
+## Github Actions ##
+To guarantee a success development, a github action was created to check the builds and test validation, for each feature developed on different branches.
