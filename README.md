@@ -2,7 +2,8 @@
 
 # Preview:
 
-![App preview](./.media/preview.gif)
+<img src=".media/preview.gif" alt="Drawing" style="width: 200px;"/>
+<img src=".media/darkmode.gif" alt="Drawing" style="width: 200px;"/>
 
 ## Introduction ##
 This project is an Android app wich consumes the Breaking Bad Api, to display, list, and provide information about the characters related. This project is made in Kotlin, and inspired in the concept of clean architecture as it shown in the following diagram.
