@@ -33,3 +33,6 @@ For testing, the following are the libraries used:
 
 ## Github Actions ##
 To guarantee a success development, a github action was created to check the builds and test validation, for each feature developed on different branches.
+
+## Author ##
+Alejandro Daniel Jóse Gómez Flórez (@aldajo92)
