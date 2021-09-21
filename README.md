@@ -11,7 +11,7 @@ This project is an Android app wich consumes the Breaking Bad Api, to display, l
 
 The direction of each layer communication is the rule and it help to struct the file structure, allowing scale and maintain the application for future improvements. Based on the repository architecture presented in the android documentation, we use the MVVM architecture to communicate the UI and model. Additionally it allows to persist the data and handle the user interactions.
 
-![Android MVVM Architecture](https://ichi.pro/assets/images/max/724/1*BqFy9rd2_hCtOeHgUY72gg.png)
+![Android MVVM Architecture](https://miro.medium.com/max/724/1*BqFy9rd2_hCtOeHgUY72gg.png)
 
 ## Technologies used ##
 
