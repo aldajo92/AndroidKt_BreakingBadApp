@@ -6,7 +6,8 @@
 ## Introduction ##
 This project is an Android app wich consumes the Breaking Bad Api, to display, list, and provide information about the characters related. This project is made in Kotlin, and inspired in the concept of clean architecture as it shown in the following diagram.
 
-![Clean Architecture](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
+![Clean Architecture](https://codersopinion.com/images/posts/clean-architecture/clean-architecture.png)
+
 
 The direction of each layer communication is the rule and it help to struct the file structure, allowing scale and maintain the application for future improvements. Based on the repository architecture presented in the android documentation, we use the MVVM architecture to communicate the UI and model. Additionally it allows to persist the data and handle the user interactions.
 
