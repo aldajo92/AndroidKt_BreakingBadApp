@@ -1,4 +1,4 @@
-package com.projects.aldajo92.breakingbadapp.framework.db.dao
+package com.projects.aldajo92.breakingbadapp.framework.db
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -1,6 +1,6 @@
 package com.projects.aldajo92.breakingbadapp
 
-import com.projects.aldajo92.breakingbadapp.framework.BreakingBadApi
+import com.projects.aldajo92.breakingbadapp.framework.network.BreakingBadApi
 import com.projects.aldajo92.breakingbadapp.framework.network.models.CharactersResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

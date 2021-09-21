@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.db.BBFavoritesDatabase
-import com.projects.aldajo92.breakingbadapp.framework.db.dao.FavoriteCharactersDao
+import com.projects.aldajo92.breakingbadapp.framework.db.FavoriteCharactersDao
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.*
@@ -22,7 +22,7 @@ import java.io.IOException
  */
 @Config(sdk = [Build.VERSION_CODES.O_MR1])
 @RunWith(RobolectricTestRunner::class)
-class DatabaseTest {
+class DataBaseTest {
 
     private lateinit var context: Context
 
@@ -51,7 +51,8 @@ class DatabaseTest {
                 "2",
                 nickName = "ch2",
                 name = "character2",
-                isFavorite = true
+                isFavorite = true,
+                occupation = listOf("occupation1", "occupation2")
             ).toEntityModel("")
 
         favoriteCharactersDao.addFavoriteCharacter(favoriteCharacterEntity)

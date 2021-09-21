@@ -1,4 +1,4 @@
-package com.projects.aldajo92.breakingbadapp.framework
+package com.projects.aldajo92.breakingbadapp.framework.network
 
 import com.projects.aldajo92.breakingbadapp.framework.network.models.CharactersResponse
 import retrofit2.http.GET

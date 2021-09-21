@@ -8,9 +8,9 @@ data class FavoriteCharactersEntity(
     @PrimaryKey val characterID: String,
     val name: String,
     val nickName: String,
-    val occupation: String,
     val portrayed: String,
     val bornDate: String,
     val imgPath: String = "",
-    val imgUrl: String = ""
+    val imgUrl: String = "",
+    val occupation: List<String>? = emptyList()
 )

@@ -34,9 +34,8 @@ class DetailViewModel @Inject constructor(
                     characterRepository.removeFavoriteItem(characterField.get()?.id)
                 }
             }
+            isFavoriteField.set(state)
         }
-
-        isFavoriteField.set(state)
     }
 
 }
