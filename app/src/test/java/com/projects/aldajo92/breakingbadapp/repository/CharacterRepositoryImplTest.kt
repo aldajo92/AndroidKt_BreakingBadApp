@@ -5,8 +5,8 @@ import com.projects.aldajo92.breakingbadapp.framework.db.FavoriteCharactersDao
 import com.projects.aldajo92.breakingbadapp.framework.network.BreakingBadApi
 import com.projects.aldajo92.breakingbadapp.framework.network.models.BBCharactersResponse
 import com.projects.aldajo92.breakingbadapp.toEntityModel
-import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
