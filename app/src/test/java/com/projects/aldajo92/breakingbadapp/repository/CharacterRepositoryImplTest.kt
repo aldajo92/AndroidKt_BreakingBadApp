@@ -52,21 +52,4 @@ class CharacterRepositoryImplTest {
 
         assertEquals(listOf("4", "1", "2", "3"), result)
     }
-
-//    @Test
-//    fun when_removeFavoriteItem_then_retrievesProperFavoritesAndResult() {
-//
-//    }
-//
-//    @Test
-//    fun when_addFavoriteItem_then_retrievesProperFavoritesAndResult() {
-//
-//    }
-//
-//    @Test
-//    fun when_getCharacterPagination_then_retrievesProperFavoritesAndResult() {
-//
-//    }
-
-
 }
