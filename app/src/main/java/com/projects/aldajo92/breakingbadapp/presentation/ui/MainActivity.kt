@@ -20,7 +20,9 @@ class MainActivity : DaggerAppCompatActivity() {
         }
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
     }
+
     private fun setupViews(binding: ActivityMainBinding) {
         navHostFragment =
             (supportFragmentManager.findFragmentById(binding.fragmentContainer.id) as NavHostFragment)
@@ -34,5 +36,15 @@ class MainActivity : DaggerAppCompatActivity() {
             binding.progressBar.visibility = View.GONE
             binding.loaderBackground.visibility = View.GONE
         }
+    }
+
+    fun showToolbarTitle(title: String, enableToolbar: Boolean) {
+        supportActionBar?.title = title
+        supportActionBar?.setDisplayHomeAsUpEnabled(enableToolbar)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

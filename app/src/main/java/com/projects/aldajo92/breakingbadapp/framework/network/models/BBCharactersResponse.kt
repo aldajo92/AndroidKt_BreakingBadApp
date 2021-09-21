@@ -2,7 +2,7 @@ package com.projects.aldajo92.breakingbadapp.framework.network.models
 
 import com.squareup.moshi.Json
 
-data class CharactersResponse(
+data class BBCharactersResponse(
     @Json(name = "char_id") val charId: String = "",
     val name: String = "",
     val birthday: String = "",
