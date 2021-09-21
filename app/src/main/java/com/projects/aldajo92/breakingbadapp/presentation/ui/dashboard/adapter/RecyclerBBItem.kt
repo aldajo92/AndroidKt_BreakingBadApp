@@ -30,21 +30,4 @@ class RecyclerBBItem(
                 }
             }
     }
-
-//    fun toggleFavorites() {
-//        val state = !(isFavoriteField.get() ?: false)
-//
-//        viewModelScope.launch {
-//            characterField.get()?.let {
-//                it.isFavorite = state
-//                if (state) {
-//                    characterRepository.saveFavoriteItem(it)
-//                } else {
-//                    characterRepository.removeFavoriteItem(characterField.get()?.id)
-//                }
-//            }
-//            isFavoriteField.set(state)
-//        }
-//    }
-
 }
