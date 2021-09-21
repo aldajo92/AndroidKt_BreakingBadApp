@@ -1,5 +1,6 @@
 package com.projects.aldajo92.breakingbadapp.repository
 
+import com.projects.aldajo92.breakingbadapp.PAGINATION_AMOUNT
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.network.BreakingBadApi
 import com.projects.aldajo92.breakingbadapp.framework.db.FavoriteCharactersDao
@@ -20,7 +21,7 @@ class CharacterRepositoryImpl constructor(
         favoritesCharactersMap = favoritesCharactersItems.associateBy { it.id }.toMutableMap()
 
         resultCharactersList.addAll(favoritesCharactersItems)
-        val charactersItems = fetchItemsPagination(100, 0).filter { !favoritesCharactersMap.containsKey(it.id) }
+        val charactersItems = fetchItemsPagination(PAGINATION_AMOUNT, 0).filter { !favoritesCharactersMap.containsKey(it.id) }
         resultCharactersList.addAll(charactersItems)
 
         return resultCharactersList

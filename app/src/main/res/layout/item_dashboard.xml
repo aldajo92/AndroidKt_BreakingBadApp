@@ -48,6 +48,18 @@
                 tools:text="Walter White" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_view_number"
+                style="@style/TextViewTitleWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_normal"
+                android:text="@{ item.character.id }"
+                app:layout_constraintEnd_toStartOf="@id/image_view_favorite"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                tools:text="Walter White" />
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_view_character_nickname"
                 style="@style/TextViewMedium"
                 android:layout_width="0dp"

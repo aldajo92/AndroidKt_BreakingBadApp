@@ -5,20 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.projects.aldajo92.breakingbadapp.BR
+import com.projects.aldajo92.breakingbadapp.PAGINATION_AMOUNT
 import com.projects.aldajo92.breakingbadapp.R
 import com.projects.aldajo92.breakingbadapp.databinding.FragmentDashboardBinding
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.presentation.adapter.GenericAdapter
 import com.projects.aldajo92.breakingbadapp.presentation.adapter.GenericItem
 import com.projects.aldajo92.breakingbadapp.presentation.adapter.ItemListener
+import com.projects.aldajo92.breakingbadapp.presentation.adapter.PaginationScrollListener
 import com.projects.aldajo92.breakingbadapp.presentation.events.DashBoardEvents
 import com.projects.aldajo92.breakingbadapp.presentation.ui.BaseFragment
 import com.projects.aldajo92.breakingbadapp.presentation.ui.dashboard.adapter.RecyclerBBItem
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -54,13 +53,24 @@ class DashboardFragment : BaseFragment(), ItemListener<BBCharacter> {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerViewCharacters
+
+        showToolbarTitle(R.string.dashboard_title, false)
 
         showLoader(true)
+        handleCharacters(viewModel.characterItems)
+
+        binding.recyclerViewCharacters.addOnScrollListener(
+            object : PaginationScrollListener(gridLayoutManager, PAGINATION_AMOUNT) {
+                override fun onLoadMore(currentPage: Int, totalItemCount: Int) {
+                    viewModel.getProductsByPagination(totalItemCount)
+                }
+            }
+        )
+
         viewModel.responseLiveData.observe(viewLifecycleOwner, {
             when (it) {
-                is DashBoardEvents.ProductsSuccess -> handleCharacters(it.content)
-                is DashBoardEvents.ProductsPaginationSuccess -> Unit // TODO: ADD pagination
+                is DashBoardEvents.ProductsSuccess -> handleCharacters(it.getDataOnce())
+                is DashBoardEvents.ProductsPaginationSuccess -> handlePaginationResponse(it.getDataOnce())
                 is DashBoardEvents.ErrorMessage -> Unit // TODO: add error message
                 else -> Unit
             }
@@ -70,6 +80,15 @@ class DashboardFragment : BaseFragment(), ItemListener<BBCharacter> {
     private fun handleCharacters(characters: List<BBCharacter>?) {
         showLoader(false)
         characters?.map {
+            RecyclerBBItem(it, R.layout.item_dashboard)
+        }?.let {
+            adapterCharacters.updateData(it)
+        }
+    }
+
+    private fun handlePaginationResponse(productModels: List<BBCharacter>?) {
+        showLoader(false)
+        productModels?.map {
             RecyclerBBItem(it, R.layout.item_dashboard)
         }?.let {
             adapterCharacters.updateData(it)

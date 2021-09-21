@@ -1,5 +1,6 @@
 package com.projects.aldajo92.breakingbadapp.repository
 
+import com.projects.aldajo92.breakingbadapp.PAGINATION_AMOUNT
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
 import com.projects.aldajo92.breakingbadapp.framework.db.FavoriteCharactersDao
 import com.projects.aldajo92.breakingbadapp.framework.network.BreakingBadApi
@@ -46,7 +47,7 @@ class CharacterRepositoryImplTest {
         )
 
         Mockito.`when`(favoriteCharacterDao.getAllCharacters()).thenReturn(favoritesItems)
-        Mockito.`when`(breakingBadApi.getCharacterByPagination(100, 0)).thenReturn(fetchItems)
+        Mockito.`when`(breakingBadApi.getCharacterByPagination(PAGINATION_AMOUNT, 0)).thenReturn(fetchItems)
 
         val result = characterRepositoryImpl.performFirstSearch().map { it.id }
 

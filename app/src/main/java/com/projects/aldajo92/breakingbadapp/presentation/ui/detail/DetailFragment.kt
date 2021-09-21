@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.projects.aldajo92.breakingbadapp.R
 import com.projects.aldajo92.breakingbadapp.databinding.FragmentDetailBinding
 import com.projects.aldajo92.breakingbadapp.presentation.ui.BaseFragment
 import javax.inject.Inject
@@ -36,12 +37,11 @@ class DetailFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val character = args.character
 
+        showToolbarTitle(character.nickName, true)
+
         binding.viewModel = viewModel
         viewModel.initInfo(character)
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
 }
