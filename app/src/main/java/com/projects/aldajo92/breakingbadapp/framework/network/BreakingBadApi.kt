@@ -1,6 +1,6 @@
 package com.projects.aldajo92.breakingbadapp.framework.network
 
-import com.projects.aldajo92.breakingbadapp.framework.network.models.CharactersResponse
+import com.projects.aldajo92.breakingbadapp.framework.network.models.BBCharactersResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import javax.inject.Singleton
@@ -12,6 +12,6 @@ interface BreakingBadApi {
     suspend fun getCharacterByPagination(
         @Query("limit") limit: Int = 0,
         @Query("offset") offset: Int = 0
-    ): List<CharactersResponse>?
+    ): List<BBCharactersResponse>?
 
 }

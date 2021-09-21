@@ -12,5 +12,6 @@ data class FavoriteCharactersEntity(
     val bornDate: String,
     val imgPath: String = "",
     val imgUrl: String = "",
-    val occupation: List<String>? = emptyList()
+    val occupation: List<String>? = emptyList(),
+    val status: String = ""
 )

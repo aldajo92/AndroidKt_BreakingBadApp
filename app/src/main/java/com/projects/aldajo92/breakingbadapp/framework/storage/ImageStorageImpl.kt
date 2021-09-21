@@ -7,10 +7,10 @@ import java.io.IOException
 import android.graphics.BitmapFactory
 import java.io.File
 
-// TODO: It needs a test
 class ImageStorageImpl : ImageStorage {
 
     override fun saveImage(bitmap: Bitmap, filename: String) {
+        File(filename).mkdir()
         try {
             FileOutputStream(filename).use { out ->
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
