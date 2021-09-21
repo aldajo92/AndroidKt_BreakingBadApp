@@ -1,7 +1,7 @@
 package com.projects.aldajo92.breakingbadapp
 
 import com.projects.aldajo92.breakingbadapp.framework.network.BreakingBadApi
-import com.projects.aldajo92.breakingbadapp.framework.network.models.CharactersResponse
+import com.projects.aldajo92.breakingbadapp.framework.network.models.BBCharactersResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.io.IOException
@@ -49,7 +49,7 @@ class BreakingBadApiTest {
 
         mockWebServer.enqueue(MockResponse().setBody(body))
 
-        val result: List<CharactersResponse> =
+        val result: List<BBCharactersResponse> =
             service.getCharacterByPagination(10, 0) ?: emptyList()
 
         assertEquals(result.count(), 10)
@@ -62,7 +62,7 @@ class BreakingBadApiTest {
 
         mockWebServer.enqueue(MockResponse().setBody(body))
 
-        val result: List<CharactersResponse> =
+        val result: List<BBCharactersResponse> =
             service.getCharacterByPagination(10, 0) ?: emptyList()
 
         assertEquals(result.count(), 0)

@@ -1,22 +1,24 @@
 package com.projects.aldajo92.breakingbadapp.presentation.ui.dashboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.projects.aldajo92.breakingbadapp.R
 import com.projects.aldajo92.breakingbadapp.BR
+import com.projects.aldajo92.breakingbadapp.R
 import com.projects.aldajo92.breakingbadapp.databinding.FragmentDashboardBinding
 import com.projects.aldajo92.breakingbadapp.domain.BBCharacter
-import com.projects.aldajo92.breakingbadapp.presentation.ui.BaseFragment
 import com.projects.aldajo92.breakingbadapp.presentation.adapter.GenericAdapter
 import com.projects.aldajo92.breakingbadapp.presentation.adapter.GenericItem
 import com.projects.aldajo92.breakingbadapp.presentation.adapter.ItemListener
 import com.projects.aldajo92.breakingbadapp.presentation.events.DashBoardEvents
+import com.projects.aldajo92.breakingbadapp.presentation.ui.BaseFragment
 import com.projects.aldajo92.breakingbadapp.presentation.ui.dashboard.adapter.RecyclerBBItem
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -45,7 +47,8 @@ class DashboardFragment : BaseFragment(), ItemListener<BBCharacter> {
             layoutManager = gridLayoutManager
             adapter = adapterCharacters
         }
-
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -53,11 +56,10 @@ class DashboardFragment : BaseFragment(), ItemListener<BBCharacter> {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerViewCharacters
 
-        viewModel.fetchCharacters()
         showLoader(true)
         viewModel.responseLiveData.observe(viewLifecycleOwner, {
             when (it) {
-                is DashBoardEvents.ProductsSuccess -> handleCharacters(it.getDataOnce())
+                is DashBoardEvents.ProductsSuccess -> handleCharacters(it.content)
                 is DashBoardEvents.ProductsPaginationSuccess -> Unit // TODO: ADD pagination
                 is DashBoardEvents.ErrorMessage -> Unit // TODO: add error message
                 else -> Unit
@@ -68,19 +70,22 @@ class DashboardFragment : BaseFragment(), ItemListener<BBCharacter> {
     private fun handleCharacters(characters: List<BBCharacter>?) {
         showLoader(false)
         characters?.map {
-            RecyclerBBItem(it, R.layout.item_dashboard, BR.model)
+            RecyclerBBItem(it, R.layout.item_dashboard)
         }?.let {
             adapterCharacters.updateData(it)
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        showLoader(true)
-    }
-
     override fun onClickItem(item: GenericItem<BBCharacter>) {
         val action = DashboardFragmentDirections.actionDashboardFragmentToDetailFragment(item.data)
         findNavController().navigate(action)
+    }
+
+    override fun onFavoriteClicked(item: GenericItem<BBCharacter>) {
+        if (item is RecyclerBBItem){
+            val state = !(item.favoriteStatusField.get() ?: false)
+            viewModel.toggleFavorites(item.character, state)
+            item.favoriteStatusField.set(state)
+        }
     }
 }

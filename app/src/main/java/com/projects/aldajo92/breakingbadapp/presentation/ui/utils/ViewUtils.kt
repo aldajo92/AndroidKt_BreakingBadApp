@@ -20,6 +20,7 @@ fun favoriteMarkState(imageView: ImageView, marked: Boolean) {
 fun imageFromUrl(imageView: ImageView, imageUrl: String) {
     Glide.with(imageView)
         .load(imageUrl)
+        .placeholder(R.drawable.ic_default_character)
         .into(imageView)
 }
 

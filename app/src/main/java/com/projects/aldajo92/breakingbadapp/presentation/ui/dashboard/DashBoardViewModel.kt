@@ -17,18 +17,28 @@ class DashBoardViewModel @Inject constructor(
     private val characterRepository: CharactersRepository<BBCharacter>
 ) : ViewModel() {
 
+    init {
+        fetchCharacters()
+    }
+
     private val _responseLiveData = MutableLiveData<DashBoardEvents<*>>()
     val responseLiveData: LiveData<DashBoardEvents<*>> get() = _responseLiveData
 
-    fun fetchCharacters() {
-        viewModelScope.launch {
+    private fun fetchCharacters() {
+        val coroutine = viewModelScope.launch {
             try {
-                val listResult = characterRepository.getItems() ?: emptyList()
+                val listResult = characterRepository.performFirstSearch() ?: emptyList()
                 _responseLiveData.value = DashBoardEvents.ProductsSuccess(listResult)
-                Timber.i("result size: ${listResult.size}")
             } catch (e: Exception) {
                 Timber.e(e)
             }
         }
     }
+
+    fun toggleFavorites(character: BBCharacter, state: Boolean) {
+        viewModelScope.launch {
+            characterRepository.toggleFavoriteCharacterState(character, state)
+        }
+    }
 }
+

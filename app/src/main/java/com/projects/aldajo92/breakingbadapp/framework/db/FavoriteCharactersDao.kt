@@ -19,7 +19,7 @@ interface FavoriteCharactersDao {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM bb_favorites")
-    suspend fun getAllProducts(): List<FavoriteCharactersEntity>
+    suspend fun getAllCharacters(): List<FavoriteCharactersEntity>
 
     @Query("SELECT * FROM bb_favorites WHERE characterID = :key")
     suspend fun getFavoriteProduct(key: String): FavoriteCharactersEntity
